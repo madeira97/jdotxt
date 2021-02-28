@@ -68,6 +68,8 @@ public class JdotxtWelcomeDialog extends JDialog{
 	        	setTitle(JdotxtGUI.lang.getWord("Welcome")); break;
 	        case P_PATH_NOT_FOUND:
 	        	setTitle(JdotxtGUI.lang.getWord("Text_file_not_found")); break;
+	        default:
+	        	break;
         }
 		this.setIconImage(JdotxtGUI.icon.getImage());
 		this.getContentPane().setBackground(Color.WHITE);

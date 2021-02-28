@@ -271,8 +271,6 @@ public class Util {
 		File dir = dest.getParentFile();
 		if (dir != null && !dir.exists()) {
 			createParentDirectory(dir);
-		}
-		if (!dir.exists()) {
 			if (!dir.mkdirs()) {
 				System.out.print("Could not create dirs: " + dir.getAbsolutePath());
 				throw new TodoException("Could not create dirs: "

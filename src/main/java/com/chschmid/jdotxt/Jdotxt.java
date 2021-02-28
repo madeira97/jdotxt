@@ -173,16 +173,10 @@ public class Jdotxt {
 	
 	public static void onWindows() {
 		// Windows taskbar fix: provideAppUserModelID
-		try {
 			NativeLibrary lib = NativeLibrary.getInstance("shell32");
 		    Function function = lib.getFunction("SetCurrentProcessExplicitAppUserModelID");
 		    Object[] args = {new WString(APPID)}; 
 		    function.invokeInt(args);
-		} catch (Error e) {
-		    return;
-		} catch (Exception x) {
-			return;
-		}
 	}
 	
 	public static void onMacOSX() {

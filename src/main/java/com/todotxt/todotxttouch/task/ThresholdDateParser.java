@@ -36,9 +36,11 @@ public class ThresholdDateParser {
             String possDate = m.group(1).trim();
             try {
                 //checking if this is a valid date
+            	synchronized(this) {
                 Date d = FORMAT.parse(possDate);
                 if (possDate.equals(FORMAT.format(d)))
                     return d;
+            	}
             } catch (ParseException e) {
                 //not a valid date, just continue
             }

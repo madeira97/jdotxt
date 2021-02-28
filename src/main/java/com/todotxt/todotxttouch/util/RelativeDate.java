@@ -38,17 +38,19 @@ public class RelativeDate {
 		today.set(GregorianCalendar.MINUTE, 0);
 		today.set(GregorianCalendar.SECOND, 0);
 		today.set(GregorianCalendar.MILLISECOND,0);
-		
+
 		return getRelativeDate(today, calendar);
 	}
-	
+
 	public static String getRelativeDate(Calendar d1, Calendar d2) {
 		long diff = d1.getTimeInMillis() - d2.getTimeInMillis();
 
 		if (diff < 0 || diff >= RelativeDate.YEAR) {
 			// future or far in past,
 			// just return yyyy-mm-dd
-			return sdf.format(d2.getTime());
+			synchronized(sdf) {
+				return sdf.format(d2.getTime());
+			}
 		}
 
 		if (diff >= 60 * RelativeDate.DAY) {
