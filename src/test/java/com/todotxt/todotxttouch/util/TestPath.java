@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class TestPathFileName {
+public class TestPath {
 	
 	@Test
 	public void testNullFilename() {

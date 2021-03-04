@@ -43,4 +43,9 @@ public class TestStrings {
 		assertEquals("string2 string1",insertPaddedIfNeeded("string1", 0, "string2"));
 	}
 	
+	@Test
+	public void testStringsEqual() {
+		assertEquals("string2 ",insertPaddedIfNeeded("string2", 0, "string2"));
+	}
+	
 }
