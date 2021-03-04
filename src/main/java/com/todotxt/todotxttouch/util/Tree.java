@@ -84,7 +84,7 @@ public class Tree<E> {
 	}
 
 	public boolean contains(E data) {
-		if (children == null) {
+		if (children == null) { //Does not look in Root.
 			return false;
 		}
 		
