@@ -20,7 +20,7 @@ public class TestCursorPositionCalculator {
 	
 	@Test
 	public void testEmptyStrings() {
-		assertEquals("macaco".length(),calculate(100, "","macaco"));
+		assertEquals("palavra".length(),calculate(100, "","palavra"));
 	}
 	
 	@Test
@@ -46,7 +46,7 @@ public class TestCursorPositionCalculator {
 	
 	@Test
 	public void testLargerPositionThanWord() {
-		assertEquals("macaco".length(),CursorPositionCalculator.calculate(100,"algo", "macaco"));
+		assertEquals("macaco".length(),calculate(100,"algo", "macaco"));
 	}
 	
 }
