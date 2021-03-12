@@ -1,7 +1,6 @@
-package com.todotxt.todotxttouch.util;
+package com.todotxt.todotxttouch.util.category_partition;
 
 import static com.todotxt.todotxttouch.util.Strings.insertPaddedIfNeeded;
-import static com.todotxt.todotxttouch.util.Strings.insertPadded;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;

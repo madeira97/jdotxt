@@ -1,4 +1,4 @@
-package com.todotxt.todotxttouch.util;
+package com.todotxt.todotxttouch.util.category_partition;
 
 import static com.todotxt.todotxttouch.util.Path.fileName;
 import static org.junit.Assert.assertEquals;

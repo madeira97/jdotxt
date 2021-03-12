@@ -1,4 +1,4 @@
-package com.todotxt.todotxttouch.util;
+package com.todotxt.todotxttouch.util.category_partition;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.todotxt.todotxttouch.util.Tree;
 
 public class TreeTest {
 	
