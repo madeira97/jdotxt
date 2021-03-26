@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class TaskTest {
 	
-	@Test(expected = NullPointerException.class)
+	@Test
 	public void testConstructor() {
 		Task t = new Task();
 		new Task(t);
