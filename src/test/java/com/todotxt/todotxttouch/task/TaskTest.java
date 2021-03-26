@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class TaskTest {
 	
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void testConstructor() {
 		Task t = new Task();
 		new Task(t);
@@ -24,7 +24,7 @@ public class TaskTest {
 		assertTrue(true);
 	}
 	
-	@Test
+
 	public void testGetters() {
 		Task t = new Task();
 		t.getOriginalPriority();
