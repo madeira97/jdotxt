@@ -15,6 +15,11 @@ public class TestStrings {
 		assertEquals(null,Strings.insertPaddedIfNeeded(null, 0, null));
 	}
 	
+	@Test
+	public void test_insert_padded() {
+		assertEquals(null,Strings.insertPadded(null, 0, null));
+	}
+	
 	@Test(expected=NullPointerException.class)
 	public void testNullPriorString() {
 		assertEquals("string2 ",Strings.insertPaddedIfNeeded(null, 0, "string2"));
