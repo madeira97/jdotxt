@@ -1,10 +1,11 @@
 package com.todotxt.todotxttouch.util.category_partition;
 
-import static com.todotxt.todotxttouch.util.RelativeDate.getRelativeDate;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.prefs.Preferences;
 
@@ -12,6 +13,8 @@ import org.junit.Test;
 
 import com.chschmid.jdotxt.Jdotxt;
 import com.chschmid.jdotxt.gui.JdotxtGUI;
+import com.todotxt.todotxttouch.util.RelativeDate;
+import com.todotxt.todotxttouch.util.Strings;
 
 public class TestRelativeDate {
 	private static final long SECOND = 1000; //milliseconds
@@ -22,7 +25,7 @@ public class TestRelativeDate {
 	@Test(expected = NullPointerException.class)
 	public void testDateNull() {
 		Calendar today = new GregorianCalendar();
-		assertEquals("",getRelativeDate(today,null));
+		assertEquals("",RelativeDate.getRelativeDate(today,null));
 	}
 	
 	@Test
@@ -31,7 +34,7 @@ public class TestRelativeDate {
 		Calendar cal = Calendar.getInstance();
 	    cal.add(Calendar.DATE,-1);
 	    JdotxtGUI.loadLookAndFeel(Preferences.userNodeForPackage(Jdotxt.class).get("lang", "English"));
-		assertEquals(JdotxtGUI.lang.getWord("dates_one_day_ago"),getRelativeDate(today,cal));
+		assertEquals(JdotxtGUI.lang.getWord("dates_one_day_ago"),RelativeDate.getRelativeDate(today,cal));
 	}
 	
 	@Test
@@ -42,7 +45,7 @@ public class TestRelativeDate {
 	    long diff = today.getTimeInMillis() - cal.getTimeInMillis();
 	    long days = diff / DAY;
 	    JdotxtGUI.loadLookAndFeel(Preferences.userNodeForPackage(Jdotxt.class).get("lang", "English"));
-		assertEquals(String.format(JdotxtGUI.lang.getWord("dates_days_ago"), days),getRelativeDate(today,cal));
+		assertEquals(String.format(JdotxtGUI.lang.getWord("dates_days_ago"), days),RelativeDate.getRelativeDate(today,cal));
 	}
 	
 	@Test
@@ -51,7 +54,7 @@ public class TestRelativeDate {
 		Calendar cal = Calendar.getInstance();
 	    cal.add(Calendar.DATE,-31);
 	    JdotxtGUI.loadLookAndFeel(Preferences.userNodeForPackage(Jdotxt.class).get("lang", "English"));
-		assertEquals(JdotxtGUI.lang.getWord("dates_one_month_ago"),getRelativeDate(today,cal));
+		assertEquals(JdotxtGUI.lang.getWord("dates_one_month_ago"),RelativeDate.getRelativeDate(today,cal));
 	}
 	
 	@Test
@@ -62,7 +65,7 @@ public class TestRelativeDate {
 	    long diff = today.getTimeInMillis() - cal.getTimeInMillis();
 	    long months = diff / (30 * DAY);
 	    JdotxtGUI.loadLookAndFeel(Preferences.userNodeForPackage(Jdotxt.class).get("lang", "English"));
-		assertEquals(String.format(JdotxtGUI.lang.getWord("dates_months_ago"), months),getRelativeDate(today,cal));
+		assertEquals(String.format(JdotxtGUI.lang.getWord("dates_months_ago"), months),RelativeDate.getRelativeDate(today,cal));
 	}
 	
 	@Test
@@ -72,7 +75,7 @@ public class TestRelativeDate {
 	    cal.add(Calendar.DATE,30);
 	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	    JdotxtGUI.loadLookAndFeel(Preferences.userNodeForPackage(Jdotxt.class).get("lang", "English"));
-		assertEquals(sdf.format(cal.getTime()),getRelativeDate(today,cal));
+		assertEquals(sdf.format(cal.getTime()),RelativeDate.getRelativeDate(today,cal));
 	}
 	
 	@Test
@@ -82,7 +85,29 @@ public class TestRelativeDate {
 	    cal.add(Calendar.DATE,30);
 	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	    JdotxtGUI.loadLookAndFeel(Preferences.userNodeForPackage(Jdotxt.class).get("lang", "English"));
-		assertEquals(sdf.format(cal.getTime()),getRelativeDate(today,cal));
+		assertEquals(sdf.format(cal.getTime()),RelativeDate.getRelativeDate(today,cal));
+	}
+	
+	@Test
+	public void createRelativeDate() {
+		RelativeDate rd = new RelativeDate();
+		assertTrue(true);
+	}
+	
+	@Test
+	public void testGetRelativeDate_Date() {
+        Date d = new Date();
+        Calendar converted = GregorianCalendar.getInstance();
+        converted.setTime(d);
+		assertEquals(RelativeDate.getRelativeDate(converted),RelativeDate.getRelativeDate(d));
+	}
+	
+	@Test
+	public void testGetRelativeDate_Calendar() {
+		final Calendar today = new GregorianCalendar();
+		Calendar cal = Calendar.getInstance();
+	    cal.add(Calendar.DATE,30);
+		assertEquals(RelativeDate.getRelativeDate(today,cal),RelativeDate.getRelativeDate(cal));
 	}
 	
 }
