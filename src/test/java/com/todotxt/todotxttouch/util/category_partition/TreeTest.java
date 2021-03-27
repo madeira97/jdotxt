@@ -97,4 +97,17 @@ public class TreeTest {
 		tree = new Tree<>(5);
 		assertFalse(tree.contains(new Tree<>(10)));
 	}
+	
+	@Test
+	public void testContainsTrue() {
+		tree = new Tree<>(5);
+		tree.addChild(10);
+		assertFalse(tree.contains(new Tree<>(10)));
+	}
+	
+	@Test
+	public void test_is_loaded() {
+		
+		assertFalse(tree.isLoaded());
+	}
 }
