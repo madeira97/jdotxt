@@ -74,6 +74,8 @@ public final class Strings {
 		}
 		return newText.toString();
 	}
+	
+	
 
 	/**
 	 * Inserts a given string into another padding it with spaces. Is aware if
