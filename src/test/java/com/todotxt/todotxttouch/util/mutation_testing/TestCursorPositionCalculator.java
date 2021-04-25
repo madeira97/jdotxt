@@ -30,4 +30,9 @@ public class TestCursorPositionCalculator {
 		assertEquals(CursorPositionCalculator.calculate(0, "ola","bolach"), 3);
 	}
 	
+	@Test
+	public void kill_mutant5() {
+		assertEquals(CursorPositionCalculator.calculate(-10,"1","bolacha"),0);
+	}
+	
 }

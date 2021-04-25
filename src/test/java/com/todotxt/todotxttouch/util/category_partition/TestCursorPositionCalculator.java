@@ -11,7 +11,7 @@ public class TestCursorPositionCalculator {
 	
 	
 	@Test
-	public void testNegativePriorPositionBothNull() {
+	public void testNegativePriorPositionBothNull() { 
 		assert(CursorPositionCalculator.calculate(-1, null,null) == 0);
 	}
 	
@@ -31,18 +31,18 @@ public class TestCursorPositionCalculator {
 	}
 	
 	@Test
-	public void testLargerCursorPosition() {
+	public void testLargerCursorPosition() { 
 		assert(CursorPositionCalculator.calculate(10, "frango", "maca") == 4);
 	}
 	
 	@Test
-	public void testPriorValueNull() {
+	public void testPriorValueNull() { 
 		assertEquals("joao".length(),CursorPositionCalculator.calculate(100,null,"Joao"));
 	}
 	
 	
 	@Test
-	public void testNewValueNull() {
+	public void testNewValueNull() { 
 		assertEquals(0,CursorPositionCalculator.calculate(100,"joao",null));
 	}
 	
